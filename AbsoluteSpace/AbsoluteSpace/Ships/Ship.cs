@@ -26,10 +26,18 @@ namespace AbsoluteSpace.Ships
             addAnimation("transform", this.generateFrameNumbersBetween(0, 39), 24, false);
             addAnimation("reverse", this.generateFrameNumbersBetween(39, 0), 24, false);
             play("static");
+
+            if (FlxG.debug) debugName = "mouseControl";
         }
 
         override public void update()
         {
+            if (debugName == "mouseControl")
+            {
+                angle = (FlxU.getAngle(new Vector2(this.x, this.y), new Vector2(FlxG.mouse.x, FlxG.mouse.y))) + 90;
+                setVelocityFromAngle(150);
+                angle -= 90;
+            }
 
 
             base.update();
