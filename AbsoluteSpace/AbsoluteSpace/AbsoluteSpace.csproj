@@ -73,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomShips\CustomShip.cs" />
+    <Compile Include="CustomShips\EnemyShip.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="States\ClickState.cs" />
     <Compile Include="States\IntroState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

@@ -13,12 +13,12 @@ using AbsoluteSpace.CustomShips;
 
 namespace AbsoluteSpace.States
 {
-    public class PlayState : FlxState
+    public class ClickState : FlxState
     {
-        private Ship player;
-        private CustomShip enemy;
+
+        private EnemyShip enemy;
         private FlxGroup enemies;
-       
+        private int elapsed;
 
         override public void create()
         {
@@ -26,14 +26,11 @@ namespace AbsoluteSpace.States
 
             FlxG.mouse.show();
 
-            player = new Ship(FlxU.randomInt(0, FlxG.width), FlxU.randomInt(0, FlxG.height));
-            add(player);
-
             enemies = new FlxGroup();
 
             for (int i = 0; i < 10; i++)
             {
-                enemy = new CustomShip(FlxU.randomInt(0, FlxG.width), FlxU.randomInt(0, FlxG.height), "11111111111");
+                enemy = new EnemyShip(FlxU.randomInt(0, FlxG.width), FlxU.randomInt(0, FlxG.height));
                 enemies.add(enemy);
             }
 
@@ -44,13 +41,17 @@ namespace AbsoluteSpace.States
         override public void update()
         {
 
-            FlxU.overlap(enemies, player, overlapped);
+            if (elapsed % 64 == 1)
+            {
+                EnemyShip x = (EnemyShip) enemies.getRandom();
+                x.color = Color.Red;
 
+            }
 
 
             base.update();
 
-            
+            elapsed++;
         }
 
 

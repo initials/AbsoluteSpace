@@ -35,7 +35,7 @@ namespace AbsoluteSpace.States
 
             if (FlxG.keys.SPACE && elapsedInState > 0.5f)
             {
-                FlxG.state = new AbsoluteSpace.States.PlayState();
+                FlxG.state = new AbsoluteSpace.States.ClickState();
                 return;
             }
 

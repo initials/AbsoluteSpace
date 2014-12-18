@@ -1,1 +1,2 @@
 E:\VisualStudio2010\AbsoluteSpace\AbsoluteSpace\AbsoluteSpaceContent\obj\x86\Debug\AbsoluteSpaceContent.contentprojResolveAssemblyReference.cache
+C:\Users\Shane\Documents\Visual Studio 2010\Projects\AbsoluteSpace\AbsoluteSpace\AbsoluteSpaceContent\obj\x86\Debug\AbsoluteSpaceContent.contentprojResolveAssemblyReference.cache
