@@ -33,10 +33,14 @@ namespace AbsoluteSpace.States
         override public void update()
         {
 
-            if (FlxG.keys.SPACE && elapsedInState > 0.5f)
+            introductionText.text = FlxU.randomString(20);
+
+            if (FlxG.keys.justPressed(Keys.A))
             {
-                FlxG.state = new AbsoluteSpace.States.ClickState();
-                return;
+                Console.WriteLine(elapsedInState);
+
+                //FlxG.state = new AbsoluteSpace.States.ClickState();
+                //return;
             }
 
 

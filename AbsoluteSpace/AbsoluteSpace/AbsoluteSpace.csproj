@@ -74,7 +74,11 @@
   <ItemGroup>
     <Compile Include="CustomShips\CustomShip.cs" />
     <Compile Include="CustomShips\EnemyShip.cs" />
+    <Compile Include="Environment\Star.cs" />
+    <Compile Include="Environment\Starfield.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="Ships\Bullet.cs" />
+    <Compile Include="Ships\PlayerShip.cs" />
     <Compile Include="States\ClickState.cs" />
     <Compile Include="States\IntroState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

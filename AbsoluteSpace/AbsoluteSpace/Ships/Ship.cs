@@ -12,6 +12,7 @@ namespace AbsoluteSpace.Ships
 {
     class Ship : FlxSprite
     {
+        public FlxGroup bullets;
 
         public Ship(int xPos, int yPos)
             : base(xPos, yPos)
@@ -28,6 +29,20 @@ namespace AbsoluteSpace.Ships
             play("static");
 
             if (FlxG.debug) debugName = "mouseControl";
+
+            bullets = new FlxGroup();
+            for (int i = 0; i < 35; i++)
+            {
+                Vector2 place = new Vector2(-100, -100);
+                Console.WriteLine(this.GetType().ToString());
+                if (this.GetType().ToString() == "AbsoluteSpace.Ships.PlayerShip")
+                    place = new Vector2(10 + (i * 5), 10);
+                Bullet b = new Bullet((int)place.X,(int)place.Y);
+                b.dead = true;
+                b.debugName = i.ToString();
+                bullets.add(b);
+            }
+            
         }
 
         override public void update()
@@ -39,9 +54,39 @@ namespace AbsoluteSpace.Ships
                 angle -= 90;
             }
 
-
+            bullets.update();
             base.update();
 
+        }
+
+        public override void render(SpriteBatch spriteBatch)
+        {
+            foreach(Bullet b in bullets.members) 
+            {
+                b.render(spriteBatch);
+            }
+
+            base.render(spriteBatch);
+        }
+
+        public void shoot()
+        {
+            
+            FlxObject b = bullets.getFirstDead();
+            //Console.WriteLine("shoot " + b.debugName);
+            if (b != null)
+            {
+                b.dead = false;
+                b.x = this.x + this.width / 2;
+                b.y = this.y - 5;
+                b.velocity.Y = -250;
+                
+            }
+            else
+            {
+                Console.WriteLine("Could not fire");
+
+            }
         }
 
 

@@ -42,6 +42,17 @@ namespace AbsoluteSpace.CustomShips
 
         }
 
+        public override void kill()
+        {
+
+            base.kill();
+        }
+        public override void overlapped(FlxObject obj)
+        {
+            
+            base.overlapped(obj);
+        }
+
         public override void render(SpriteBatch spriteBatch)
         {
 

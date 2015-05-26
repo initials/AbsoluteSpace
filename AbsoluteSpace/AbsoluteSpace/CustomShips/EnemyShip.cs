@@ -7,10 +7,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using AbsoluteSpace.Ships;
 
 namespace AbsoluteSpace.CustomShips
 {
-    class EnemyShip : FlxSprite
+    class EnemyShip : Ship
     {
 
         public EnemyShip(int xPos, int yPos)
@@ -45,6 +46,26 @@ namespace AbsoluteSpace.CustomShips
 
             base.update();
 
+        }
+
+        public override void kill()
+        {
+            foreach (var item in bullets.members)
+            {
+                item.dead = false;
+                item.x = x;
+                item.y = y;
+                item.velocity.X = FlxU.randomInt(-100, 100);
+                item.velocity.Y = FlxU.randomInt(-100, 100);
+
+            }
+            base.kill();
+        }
+
+        public override void overlapped(FlxObject obj)
+        {
+            
+            base.overlapped(obj);
         }
 
 
